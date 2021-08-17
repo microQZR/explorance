@@ -1,0 +1,108 @@
+<div
+  class="form-modal-backdrop flex"
+  (click)="hideActionForm()"
+  *ngIf="showActionForm !== 'none'"
+>
+  <form (click)="stopPropagation($event)">
+    <fieldset class="flex-column">
+      <legend>Add/Edit</legend>
+      <label for="name">Name : </label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        required
+        [(ngModel)]="name"
+        #nameRef="ngModel"
+      />
+      <span
+        class="invalid"
+        *ngIf="nameRef.invalid && (nameRef.dirty || nameRef.touched)"
+        >A name is required.</span
+      >
+      <label for="Family">Family : </label>
+      <input
+        type="text"
+        id="family"
+        name="family"
+        required
+        [(ngModel)]="family"
+        #familyRef="ngModel"
+      />
+      <span
+        class="invalid"
+        *ngIf="familyRef.invalid && (familyRef.dirty || familyRef.touched)"
+        >A "Family" value is required.</span
+      >
+      <label for="birthday">Birthday: </label>
+      <input
+        type="date"
+        id="birthday"
+        name="birthday"
+        required
+        [(ngModel)]="birthday"
+        #birthdayRef="ngModel"
+      />
+      <span
+        class="invalid"
+        *ngIf="
+          birthdayRef.invalid && (birthdayRef.dirty || birthdayRef.touched)
+        "
+        >Please enter a valid birthday.</span
+      >
+      <label for="itemnum">#Items: </label>
+      <input
+        type="number"
+        id="itemnum"
+        name="itemnum"
+        required
+        min="0"
+        [(ngModel)]="itemNum"
+        #itemnumRef="ngModel"
+      />
+      <span
+        class="invalid"
+        *ngIf="itemnumRef.invalid && (itemnumRef.dirty || itemnumRef.touched)"
+        >Please enter a positive integer for this field.</span
+      >
+      <span class="invalid generic-invalid" *ngIf="genericInvalidForm"
+        >Please fill out all values.</span
+      >
+      <div class="action-form-controls-group flex">
+        <button
+          type="submit"
+          *ngIf="showActionForm === 'add'"
+          (click)="
+            !nameRef.invalid &&
+            !familyRef.invalid &&
+            !birthdayRef.invalid &&
+            !itemnumRef.invalid
+              ? addNewEntry()
+              : (genericInvalidForm = true);
+            $event.stopPropagation()
+          "
+          class="btn"
+        >
+          Add
+        </button>
+        <button
+          type="submit"
+          *ngIf="showActionForm === 'edit'"
+          (click)="
+            !nameRef.invalid &&
+              !familyRef.invalid &&
+              !birthdayRef.invalid &&
+              !itemnumRef.invalid &&
+              updateEntry()
+          "
+          class="btn"
+        >
+          Update
+        </button>
+        <button type="button" (click)="hideActionForm()" class="btn btn-warn">
+          Cancel
+        </button>
+      </div>
+    </fieldset>
+  </form>
+</div>

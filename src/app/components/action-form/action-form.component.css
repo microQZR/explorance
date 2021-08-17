@@ -1,0 +1,62 @@
+.form-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+form {
+  box-shadow: 0 4px 20px 5px rgba(0, 0, 0, 0.25);
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  font-size: 20px;
+
+  width: 40%;
+  min-width: 300px;
+  max-width: 800px;
+}
+
+fieldset {
+  border: none;
+}
+
+form legend {
+  float: left;
+  font-size: 25px;
+  font-weight: 700;
+  color: var(--main-blue);
+}
+
+input {
+  width: 100%;
+  font-size: 20px;
+}
+
+label {
+  margin-top: 1em;
+  align-self: flex-start;
+  font-weight: 700;
+}
+
+.action-form-controls-group {
+  margin-top: 30px;
+  align-self: flex-end;
+}
+
+.action-form-controls-group button {
+  margin-left: 12px;
+}
+
+.invalid {
+  background-color: var(--error-bg);
+  color: var(--error-font);
+  width: 100%;
+  text-align: center;
+  padding: 0.3em;
+}
+
+.generic-invalid {
+  margin-top: 15px;
+}

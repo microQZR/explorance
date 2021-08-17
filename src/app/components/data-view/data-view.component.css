@@ -1,0 +1,77 @@
+fieldset {
+  margin-top: 30px;
+  padding: 40px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.25);
+}
+
+legend {
+  background-color: var(--main-yellow);
+  padding: 0.5em 1.2em;
+  border-radius: 100px;
+  font-family: var(--text-font-ss);
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.search-control > label {
+  font-weight: 700;
+  margin-right: 1em;
+}
+
+.search-control > input {
+  width: 25em;
+  border: none;
+  border-bottom: 2px solid var(--main-blue);
+}
+
+table {
+  margin-top: 35px;
+  table-layout: fixed;
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 500px;
+  text-align: center;
+}
+
+table th,
+table td {
+  padding: 8px;
+
+  white-space: nowrap;
+  overflow-x: auto;
+  max-width: 20%;
+  text-overflow: ellipsis;
+}
+
+table .actions-td {
+  overflow-x: visible;
+}
+
+table .thead:first-child {
+  background-color: #1d3442;
+  color: #fff;
+}
+
+table tr:nth-child(odd) {
+  background-color: var(--main-green);
+}
+
+table tr:nth-child(even) {
+  background-color: #34c3b5;
+}
+
+table .btn:hover {
+  box-shadow: 0 0 3px 3px rgba(255, 255, 255, 0.5);
+}
+
+.new-entry-btn {
+  margin-top: 30px;
+}
+
+.no-entry {
+  text-align: center;
+  font-size: 20px;
+  margin: 50px 0;
+}

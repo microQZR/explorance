@@ -1,0 +1,41 @@
+<fieldset>
+  <legend>Read/Show</legend>
+  <div class="search-control">
+    <label for="search">Search :</label>
+    <input type="text" id="search" name="search" />
+  </div>
+  <table *ngIf="usersData.length > 0">
+    <thead>
+      <tr class="thead">
+        <th>Name</th>
+        <th>Family</th>
+        <th>Birthday</th>
+        <th>#Items</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of usersData; let i = index">
+        <td>{{ user.name }}</td>
+        <td>{{ user.family }}</td>
+        <td>{{ user.birthday ?? "N/A" }}</td>
+        <td>{{ user.itemNum ?? "N/A" }}</td>
+        <td class="actions-td">
+          <button type="button" (click)="delete(i)" class="btn btn-warn">
+            Delete
+          </button>
+          <button type="button" (click)="setEditUser(i)" class="btn">
+            Edit
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p *ngIf="0 >= usersData.length" class="no-entry">
+    There are no recorded entries currently. Use the button below to add new
+    ones.
+  </p>
+  <button type="button" (click)="showAddForm()" class="btn new-entry-btn">
+    Add New Entry
+  </button>
+</fieldset>
